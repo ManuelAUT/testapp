@@ -1,0 +1,9 @@
+{
+  "require": {
+  "microsoft/azure-storage":"*",
+  "microsoft/azure-storage-blob": "*",
+  "microsoft/azure-storage-queue": "*",
+  "microsoft/azure-storage-file": "*",
+  "microsoft/windowsazure": "*"
+  }
+}
