@@ -32,6 +32,7 @@ catch(PDOException $e)
      echo "create msg";
      // Create message.
      $message = new BrokeredMessage("test");
+     echo "create msg2";
      $message->setBody("ArtNr: " . $id . ", Menge: " . $menge . ", Comment :" . $comment);
      echo "send msg";
      // Send message.
