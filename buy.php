@@ -13,19 +13,10 @@ if ($_POST['menge'] < 0 ) {
 } else {
 
 try {
-    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "asdf1234.");
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $conn->prepare("INSERT INTO Bestellung(ArtNr, Menge, Comment)
-		VALUES (:artnr, :Menge, :Comment)");
-	$stmt->bindParam(':artnr', $id);
-	$stmt->bindParam(':Menge', $menge);
-	$stmt->bindParam(':Comment', $comment);
-
+   
 	$id = $_POST['artnr'];
 	$menge = $_POST['menge'];
 	$comment = $_POST['comment'];
-	$stmt->execute();
 
 }
 catch(PDOException $e)
