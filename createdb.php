@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student@ringmysql", "asdf1234.");
+    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "asdf1234.");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "CREATE TABLE Products(
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
