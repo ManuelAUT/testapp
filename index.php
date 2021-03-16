@@ -18,7 +18,7 @@
 <body>
 <?php
 $servername = "direktdb.database.windows.net";
-$username = "student@ringmysql";
+$username = "student@ringmysql@direktdb";
 $password = "asdf1234.";
 $dbname = "Products";
 try {
