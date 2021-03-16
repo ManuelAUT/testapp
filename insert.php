@@ -1,5 +1,5 @@
 <?php
-$servername = "ringmysql.mysql.database.azure.com";
+$servername = "direktdb.database.windows.net";
 $username = "student@ringmysql";
 $password = "asdf1234.";
 $dbname = "Products";

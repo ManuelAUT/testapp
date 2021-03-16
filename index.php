@@ -17,7 +17,7 @@
 </head>
 <body>
 <?php
-$servername = "ringmysql.mysql.database.azure.com";
+$servername = "direktdb.database.windows.net";
 $username = "student@ringmysql";
 $password = "asdf1234.";
 $dbname = "Products";
@@ -73,16 +73,5 @@ catch(PDOException $e) {
 echo "</table>";
 $conn = null;
 ?>
-<div class='container'>
-<video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="1280" height="720"
-        poster="" data-setup='{"nativeControlsForTouch": false}'>
-        <source
-          src="http://ringmedia-frct1.streaming.media.azure.net/0f21d862-4f24-4115-9f2e-c15cc5f1868a/smogfreering.ism/manifest"
-          type="application/vnd.ms-sstr+xml" />
-        <p class="amp-no-js">
-          To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
-        </p>
-</video>
-</div>
 </body>
 </html>
