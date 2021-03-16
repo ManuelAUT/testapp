@@ -1,29 +1,7 @@
 <?php
-$servername = "direktdb.database.windows.net";
-$username = "student@ringmysql@direktdb";
-$password = "asdf1234.";
-$dbname = "Products";
-
 
 try {
-    $conn = new PDO("mysql:host=$servername", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE DATABASE " . $dbname;
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "Database created successfully<br>" . "\n";
-    }
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage() . "\n";
-    }
-
-
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
+    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student@ringmysql", "asdf1234.");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "CREATE TABLE Products(
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,

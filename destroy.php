@@ -1,11 +1,7 @@
 <?php
-$servername = "direktdb.database.windows.net";
-$username = "student@ringmysql@direktdb";
-$password = "asdf1234.";
-$dbname = "Products";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student@ringmysql", "asdf1234.");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare("DROP TABLE Products");
     $stmt->execute();
