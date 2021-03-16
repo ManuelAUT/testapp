@@ -33,19 +33,9 @@ catch(PDOException $e)
     echo $sql . "<br>" . $e->getMessage() . "\n";
     }
 
-
-
- try    {
-    $connectionString = "Endpoint=https://ringesms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NdNmdRQix0JZm6PWNa7z/iTRH/KehoMo91LxCBr3HEw=";
+    $connectionString = "Endpoint=sb://direktsms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=CXz81wQJmzr0DxtBDnXtWrFGiYNjo61axinpu0B8bFQ=";
     // Create Service Bus REST proxy.
      $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-}
-catch(connectException $e){
-    $code = $e->getCode();
-    $error_message = $e->getMessage();
-    echo $code.": ".$error_message."<br />";
-}
-
 
  try    {
      echo "create msg";
