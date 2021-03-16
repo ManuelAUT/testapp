@@ -34,7 +34,7 @@ catch(PDOException $e)
      $message = new BrokeredMessage("test");
      $message->setBody("ArtNr: " . $id . ", Menge: " . $menge . ", Comment :" . $comment);
      echo "send msg";
-     echo $message;
+     echo "$message";
      // Send message.
      $serviceBusRestProxy->sendQueueMessage("ringe", $message);
      echo "SMS";
