@@ -29,8 +29,8 @@
         print("Error connecting to SQL Server.");
         die(print_r($e));
 }
-
-		echo  "<div class='container'>".
+try {
+  		echo  "<div class='container'>".
 		      "<h1 class='my-4'>".
 		      "</h1>".
 
@@ -46,19 +46,19 @@
 		     "</h4>".
          "<p class='card-text'>".
          "<p>" . htmlspecialchars($row['langbeschreibung'], ENT_QUOTES, 'UTF-8') . "</p> ".
-//         "<form action='buy.php' method='post'>".
-//		     "<input type='hidden' name='artnr' value=" . $row['id'] . ">".
-//         "<div class='form-group'>".
-//         "<label for='menge'>Menge</label>".
-//         "<input type='number' name='menge' class='form-control' id='menge' placeholder='Menge eingeben'>".
-//         "</div>".
-//         "<div class='form-group'>".
-//         "<label for='comment'>Kommentar</label>".
-//         "<input type='text' name='comment' class='form-control' id='comment' placeholder='Kommentar eingeben'>".
-//         "</div>".
-//         "<button type='submit' class='btn btn-primary'>Buy</button>".
-//         "</form>".
-//         "</p>".
+         "<form action='buy.php' method='post'>".
+		     "<input type='hidden' name='artnr' value=" . $row['id'] . ">".
+         "<div class='form-group'>".
+         "<label for='menge'>Menge</label>".
+         "<input type='number' name='menge' class='form-control' id='menge' placeholder='Menge eingeben'>".
+         "</div>".
+         "<div class='form-group'>".
+         "<label for='comment'>Kommentar</label>".
+         "<input type='text' name='comment' class='form-control' id='comment' placeholder='Kommentar eingeben'>".
+         "</div>".
+         "<button type='submit' class='btn btn-primary'>Buy</button>".
+         "</form>".
+         "</p>".
 		     "</div>".
 		     "</div>".
 		     "</div>";
