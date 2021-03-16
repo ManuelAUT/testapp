@@ -4,7 +4,7 @@ try {
     $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "asdf1234.");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "CREATE TABLE Products(
-		id INT NOT NULL AUTO_INCREMENT ,
+		id INT(16) NOT NULL AUTO_INCREMENT ,
 		bezeichnung VARCHAR(30) NOT NULL ,
 		langbeschreibung VARCHAR(256) NOT NULL ,
 		thumbnail VARCHAR(256) NOT NULL ,
