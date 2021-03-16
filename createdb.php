@@ -21,3 +21,15 @@ catch(PDOException $e)
 <br>
 <br>
 <a href=./index.php>Back</a>
+
+<?php
+/*
+
+zweite db:
+create table Bestellung(
+	ArtNr int primary key,
+	Menge int not null,
+	Comment VARCHAR(256) NOT NULL)
+
+*/
+?>

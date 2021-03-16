@@ -73,6 +73,5 @@ catch(PDOException $e) {
 echo "</table>";
 $conn = null;
 ?>
-<h1>Hello</h1>
 </body>
 </html>

@@ -7,18 +7,13 @@ use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\QueueInfo;
 use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
-$servername = "172.31.41.18";
-$username = "shop";
-$password = "zGm7gkqzaGQX63Ls";
-$dbname = "onlineshop";
-
 if ($_POST['menge'] < 0 ) {
   echo "<script>alert('Falscher Input')</script>";
   header("Location: ./index.php");
 } else {
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "asdf1234.");
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $conn->prepare("INSERT INTO Bestellung(ArtNr, Menge, Comment)
@@ -38,9 +33,19 @@ catch(PDOException $e)
     echo $sql . "<br>" . $e->getMessage() . "\n";
     }
 
- $connectionString = "Endpoint=https://ringesms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NdNmdRQix0JZm6PWNa7z/iTRH/KehoMo91LxCBr3HEw=";
-// Create Service Bus REST proxy.
- $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+
+
+ try    {
+    $connectionString = "Endpoint=https://ringesms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NdNmdRQix0JZm6PWNa7z/iTRH/KehoMo91LxCBr3HEw=";
+    // Create Service Bus REST proxy.
+     $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+}
+catch(connectException $e){
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+
 
  try    {
      echo "create msg";
