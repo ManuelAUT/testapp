@@ -28,21 +28,6 @@ catch(PDOException $e)
     // Create Service Bus REST proxy.
      $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-     try    {
-        $queueInfo = new QueueInfo("myqueue");
-    
-        // Create queue.
-        $serviceBusRestProxy->createQueue($queueInfo);
-    }
-    catch(ServiceException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here: 
-        // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
-    }
-
 try    {
      echo "create msg";
      // Create message.
