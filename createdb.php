@@ -1,8 +1,9 @@
 <?php
 
 try {
-    $conn = new PDO("sqlsrv:server = tcp:terraform-sqlserver-5672.database.windows.net,1433; Database = Products", "Manuel", "asdf1234.");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$connectionInfo = array("UID" => "Manuel", "pwd" => "asdf1234.", "Database" => "Products", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+	$serverName = "tcp:terraform-sqlserver-5672.database.windows.net,1433";
+	$conn = sqlsrv_connect($serverName, $connectionInfo);
 	$sql = "CREATE TABLE Products(
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		bezeichnung VARCHAR(30) NOT NULL ,

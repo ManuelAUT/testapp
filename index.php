@@ -19,9 +19,9 @@
 <?php
     // PHP Data Objects(PDO) Sample Code:
     try {
-$connectionInfo = array("UID" => "Manuel", "pwd" => "asdf1234.", "Database" => "Products", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:terraform-sqlserver-5672.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+	$connectionInfo = array("UID" => "Manuel", "pwd" => "asdf1234.", "Database" => "Products", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+	$serverName = "tcp:terraform-sqlserver-5672.database.windows.net,1433";
+	$conn = sqlsrv_connect($serverName, $connectionInfo);
         $stmt = $conn->prepare("SELECT id, bezeichnung, thumbnail, langbeschreibung FROM Products");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
