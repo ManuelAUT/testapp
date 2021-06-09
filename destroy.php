@@ -9,7 +9,7 @@ try {
 	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
 
 	$conn = new PDO($dsn, $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $conn->prepare("DROP TABLE Products");
     $stmt->execute();
 
