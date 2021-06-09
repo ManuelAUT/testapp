@@ -1,7 +1,14 @@
 <?php
 
 try {
-    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "Asdf1234$");
+        $username = 'Manuel';
+        $password = 'asdf1234.';
+	$dbName = 'Products';
+	$dbHost = "terraform-mysqlserver.mysql.database.azure.com";
+
+	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+
+	$conn = new PDO($dsn, $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $conn->prepare("INSERT INTO Products(bezeichnung, thumbnail, langbeschreibung)

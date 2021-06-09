@@ -1,8 +1,8 @@
 <?php
 
 try {
-	$username = 'student@terraform-mysqlserver';
-	$password = 'Asdf1234$';
+        $username = 'Manuel';
+        $password = 'asdf1234.';
 	$dbName = 'Products';
 	$dbHost = "terraform-mysqlserver.mysql.database.azure.com";
 
