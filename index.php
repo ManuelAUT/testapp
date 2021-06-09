@@ -19,7 +19,6 @@
 <?php
     // PHP Data Objects(PDO) Sample Code:
     try {
-
         $username = 'student';
         $password = 'Asdf1234$';
         $dbName = 'Products';
@@ -28,7 +27,6 @@
         $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
     
         $conn = new PDO($dsn, $username, $password);
-
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $conn->prepare("SELECT id, bezeichnung, thumbnail, langbeschreibung FROM Products");
