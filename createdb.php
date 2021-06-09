@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "asdf1234.");
+    $conn = new PDO("sqlsrv:server = tcp:direktdb.database.windows.net,1433; Database = Products", "student", "Asdf1234$");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "CREATE TABLE Products(
 		id int IDENTITY(1,1) PRIMARY KEY,
