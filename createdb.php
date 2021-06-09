@@ -11,11 +11,11 @@ try {
 	$conn = new PDO($dsn, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "CREATE TABLE Products(
-		id int IDENTITY(1,1) PRIMARY KEY,
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		bezeichnung VARCHAR(30) NOT NULL ,
 		langbeschreibung VARCHAR(256) NOT NULL ,
-		thumbnail VARCHAR(256) NOT NULL ,
-)";
+		thumbnail VARCHAR(256) NOT NULL
+	)";
 
 	$conn->exec($sql);
 	echo "Table Products created successfully" . "\n";
