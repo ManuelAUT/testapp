@@ -1,17 +1,10 @@
 <?php
 
 try {
-        $username = 'Manuel';
-        $password = 'asdf1234.';
-	$dbName = 'Products';
-	$dbHost = "terraform-mysqlserver.mysql.database.azure.com";
+    	$conn = new PDO("sqlsrv:server = tcp:terraform-sqlserver-5672.database.windows.net,1433; Database = Products", "Manuel", "asdf1234.");
+    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
-
-	$conn = new PDO($dsn, $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("UPDATE Products SET bezeichnung = :bezeichnung,
+    $stmt = $conn->prepare("UPDATE Productstable SET bezeichnung = :bezeichnung,
       thumbnail = :thumbnail,
       langbeschreibung = :langbeschreibung
       WHERE id = :id;");

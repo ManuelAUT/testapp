@@ -1,17 +1,10 @@
 <?php
 
 try {
-        $username = 'Manuel';
-        $password = 'asdf1234.';
-	$dbName = 'Products';
-	$dbHost = "terraform-mysqlserver.mysql.database.azure.com";
-
-	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
-
-	$conn = new PDO($dsn, $username, $password);
+    	$conn = new PDO("sqlsrv:server = tcp:terraform-sqlserver-5672.database.windows.net,1433; Database = Products", "Manuel", "asdf1234.");
     	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$stmt = $conn->prepare("INSERT INTO Products(bezeichnung, thumbnail, langbeschreibung)
+	$stmt = $conn->prepare("INSERT INTO Productstable(bezeichnung, thumbnail, langbeschreibung)
 		VALUES (:bezeichnung, :thumbnail, :langbeschreibung)");
 	$stmt->bindParam(':bezeichnung', $bezeichnung);
 	$stmt->bindParam(':thumbnail', $thumbnail);
