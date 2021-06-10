@@ -36,19 +36,16 @@ try    {
      echo "send msg";
      echo "ArtNr: " . "$id" . ", Menge: " . "$menge" . ", Comment :" . "$comment";
      // Send message.
-     $serviceBusRestProxy->sendQueueMessage("ringe", $message);
+     $serviceBusRestProxy->sendQueueMessage("buymsg", $message);
      echo "SMS";
  }
  catch(ServiceException $e){
-     // Handle exception based on error codes and messages.
-     // Error codes and messages are here: 
-     // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+     echo "catch";
      $code = $e->getCode();
      $error_message = $e->getMessage();
      echo $code.": ".$error_message."<br />";
-echo "catch";
+     echo "catch";
  }
-
 
 header("Location: ./index.php");
 }
