@@ -46,6 +46,7 @@ try    {
      $code = $e->getCode();
      $error_message = $e->getMessage();
      echo $code.": ".$error_message."<br />";
+echo "catch";
  }
 
 
