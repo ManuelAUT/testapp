@@ -24,7 +24,7 @@ catch(PDOException $e)
     echo $sql . "<br>" . $e->getMessage() . "\n";
     }
 
-    $connectionString = "Endpoint=sb://direktsms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=CXz81wQJmzr0DxtBDnXtWrFGiYNjo61axinpu0B8bFQ=";
+    $connectionString = "Endpoint=sb://direktsms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=lir3CwExjuUrE2iVpkx+HNgL4OSx8ykhMeaMQxTs84o=";
     // Create Service Bus REST proxy.
      $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
