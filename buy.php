@@ -17,35 +17,35 @@ try {
 	$id = $_POST['artnr'];
 	$menge = $_POST['menge'];
 	$comment = $_POST['comment'];
-  echo "1";
+  echo "1 <br>";
 }
 catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage() . "\n";
     }
 
-    echo "2";
+    echo "2 <br>";
     $connectionString = "Endpoint=sb://direktsms.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=lir3CwExjuUrE2iVpkx+HNgL4OSx8ykhMeaMQxTs84o=";
     // Create Service Bus REST proxy.
      $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-     echo "3";
+     echo "3 <br>";
 try    {
      echo "create msg <br>";
      // Create message.
      $message = new BrokeredMessage();
      $message->setBody("message");
-     echo "send msg";
+     echo "send msg: ";
      echo "ArtNr: " . "$id" . ", Menge: " . "$menge" . ", Comment :" . "$comment" . "<br>";
      // Send message.
-     $serviceBusRestProxy->sendQueueMessage("buymsg", $message);
+     $serviceBusRestProxy->sendTopicMessage("buymsg", $message);
      echo "SMS sent";
  }
  catch(ServiceException $e){
-     echo "4";
+     echo "4 <br>";
      $code = $e->getCode();
      $error_message = $e->getMessage();
      echo $code.": ".$error_message."<br />";
-     echo "5";
+     echo "5 <br>";
  }
 
 echo "6";
