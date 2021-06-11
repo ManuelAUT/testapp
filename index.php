@@ -74,5 +74,8 @@ catch(PDOException $e) {
 echo "</table>";
 $conn = null;
 ?>
+<br>
+<a href=./createdb.php>Create DB</a>
+<a href=./work.php>Create Entry</a>
 </body>
 </html>
