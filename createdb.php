@@ -1,36 +1,40 @@
 <?php
 
 try {
-    	$conn = new PDO("sqlsrv:server = tcp:terraform-sqlserver-5672.database.windows.net,1433; Database = Products", "Manuel", "asdf1234.");
-    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $username = 'Manuel';
+        $password = 'asdf1234.';
+        $dbName = 'Products';
+        $dbHost = "localhost";
 
-	$sql = "CREATE TABLE Productstable(
-		id int IDENTITY(1,1) PRIMARY KEY,
-		bezeichnung VARCHAR(30) NOT NULL ,
-		langbeschreibung VARCHAR(256) NOT NULL ,
-		thumbnail VARCHAR(256) NOT NULL ,
-)";
+        $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
 
-	$conn->exec($sql);
-	echo "Table Products created successfully" . "\n";
-	}
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage() . "\n";
-    }
-?>
-<br>
-<br>
-<a href=./index.php>Back</a>
+        $conn = new PDO($dsn, $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "CREATE TABLE Products(
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                bezeichnung VARCHAR(30) NOT NULL ,
+                langbeschreibung VARCHAR(256) NOT NULL ,
+                thumbnail VARCHAR(256) NOT NULL
+        )";
 
-<?php
+        $conn->exec($sql);
+        echo "Table Products created successfully" . "\n";
+}
+catch(PDOException $e){
+        echo $sql . "<br>" . $e->getMessage() . "\n";
+}
+
 /*
 
 zweite db:
 create table Bestellung(
-	ArtNr int primary key,
-	Menge int not null,
-	Comment VARCHAR(256) NOT NULL)
+        ArtNr int primary key,
+        Menge int not null,
+        Comment VARCHAR(256) NOT NULL)
 
 */
 ?>
+
+<br>
+<br>
+<a href=./>Back to Main</a>

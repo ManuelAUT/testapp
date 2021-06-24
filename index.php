@@ -19,10 +19,17 @@
 <?php
     // PHP Data Objects(PDO) Sample Code:
     try {
-    	$conn = new PDO("sqlsrv:server = tcp:terraform-sqlserver-5672.database.windows.net,1433; Database = Products", "Manuel", "asdf1234.");
-    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $username = 'Manuel';
+        $password = 'asdf1234.';
+        $dbName = 'Products';
+        $dbHost = "localhost";
 
-        $stmt = $conn->prepare("SELECT id, bezeichnung, thumbnail, langbeschreibung FROM Productstable");
+        $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+
+        $conn = new PDO($dsn, $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $conn->prepare("SELECT id, bezeichnung, thumbnail, langbeschreibung FROM Products");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     }
