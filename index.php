@@ -19,15 +19,15 @@
 <?php
     // PHP Data Objects(PDO) Sample Code:
     try {
-        $username = 'Manuel';
-        $password = 'asdf1234.';
-        $dbName = 'Products';
-        $dbHost = "localhost";
+	$username = 'Manuel';
+	$password = 'asdf1234.';
+	$dbName = 'produktedb';
+	$dbHost = "ansiblemysqldb234628.mysql.database.azure.com";
 
-        $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
 
-        $conn = new PDO($dsn, $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$conn = new PDO($dsn, $username, $password);
+    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $conn->prepare("SELECT id, bezeichnung, thumbnail, langbeschreibung FROM Products");
         $stmt->execute();

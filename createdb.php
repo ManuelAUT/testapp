@@ -1,15 +1,15 @@
 <?php
 
 try {
-        $username = 'Manuel';
-        $password = 'asdf1234.';
-        $dbName = 'Products';
-        $dbHost = "localhost";
+	$username = 'Manuel';
+	$password = 'asdf1234.';
+	$dbName = 'produktedb';
+	$dbHost = "ansiblemysqldb234628.mysql.database.azure.com";
 
-        $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
 
-        $conn = new PDO($dsn, $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$conn = new PDO($dsn, $username, $password);
+    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "CREATE TABLE Products(
                 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 bezeichnung VARCHAR(30) NOT NULL ,
