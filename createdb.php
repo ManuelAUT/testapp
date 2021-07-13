@@ -1,15 +1,21 @@
 <?php
 
 try {
-    	$conn = new PDO("sqlsrv:server = tcp:terraform-sqlserver-5672.database.windows.net,1433; Database = Products", "Manuel", "asdf1234.");
-    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$username = 'Manuel';
+	$password = 'asdf1234.';
+	$dbName = 'produktedb';
+	$dbHost = "ansiblemysqldb234628.mysql.database.azure.com";
 
-	$sql = "CREATE TABLE Productstable(
-		id int IDENTITY(1,1) PRIMARY KEY,
+	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+
+	$conn = new PDO($dsn, $username, $password);
+    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$sql = "CREATE TABLE Products(
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		bezeichnung VARCHAR(30) NOT NULL ,
 		langbeschreibung VARCHAR(256) NOT NULL ,
-		thumbnail VARCHAR(256) NOT NULL ,
-)";
+		thumbnail VARCHAR(256) NOT NULL
+	)";
 
 	$conn->exec($sql);
 	echo "Table Products created successfully" . "\n";
