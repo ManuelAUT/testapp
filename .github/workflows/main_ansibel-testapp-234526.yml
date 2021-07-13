@@ -56,5 +56,5 @@
           with:
             app-name: 'ansibel-testapp-234526'
             slot-name: 'production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_1d57b9451f5349be9c8d9a136cd3762c }}
+            publish-profile: ${{ secrets.AzureAppService_PublishProfile_4037deae60b04f50bfd81ba7ae437c9d }}
             package: .
