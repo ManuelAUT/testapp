@@ -1,42 +1,40 @@
 <?php
 
 try {
-	$username = 'Manuel';
-	$password = 'asdf1234.';
-	$dbName = 'produktedb';
-	$dbHost = "ansiblemysqldb234628.mysql.database.azure.com";
+        $username = 'Manuel';
+        $password = 'asdf1234.';
+        $dbName = 'Products';
+        $dbHost = "localhost";
 
-	$dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+        $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
 
-	$conn = new PDO($dsn, $username, $password);
-    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "CREATE TABLE Products(
-		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-		bezeichnung VARCHAR(30) NOT NULL ,
-		langbeschreibung VARCHAR(256) NOT NULL ,
-		thumbnail VARCHAR(256) NOT NULL
-	)";
+        $conn = new PDO($dsn, $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "CREATE TABLE Products(
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                bezeichnung VARCHAR(30) NOT NULL ,
+                langbeschreibung VARCHAR(256) NOT NULL ,
+                thumbnail VARCHAR(256) NOT NULL
+        )";
 
-	$conn->exec($sql);
-	echo "Table Products created successfully" . "\n";
-	}
-catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage() . "\n";
-    }
-?>
-<br>
-<br>
-<a href=./index.php>Back</a>
+        $conn->exec($sql);
+        echo "Table Products created successfully" . "\n";
+}
+catch(PDOException $e){
+        echo $sql . "<br>" . $e->getMessage() . "\n";
+}
 
-<?php
 /*
 
 zweite db:
 create table Bestellung(
-	ArtNr int primary key,
-	Menge int not null,
-	Comment VARCHAR(256) NOT NULL)
+        ArtNr int primary key,
+        Menge int not null,
+        Comment VARCHAR(256) NOT NULL)
 
 */
 ?>
+
+<br>
+<br>
+<a href=./>Back to Main</a>
